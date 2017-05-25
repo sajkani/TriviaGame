@@ -2,8 +2,10 @@ $(document).ready(function() {
 
 
 function initialScreen() {
-  startScreen = "<p class='text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' role='button'>Start Quiz</a></p>";
-  $(".mainArea").html(startScreen);
+  var basketBallImage = "<img class='center-block img-right' src='assets/images/basketball.jpeg'>"
+  var startScreen = "<p class='text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' role='button'>Start Quiz</a></p>";
+  $(".mainArea").html( basketBallImage + startScreen);
+
 }
 
 initialScreen();
@@ -15,10 +17,10 @@ $("body").on("click", ".start-button", function(event){
 
   timerWrapper();
 
-}); 
+});
 
 $("body").on("click", ".answer", function(event){
-  selectedAnswer = $(this).text();
+  var selectedAnswer = $(this).text();
   if(selectedAnswer === correctAnswers[questionCounter]) {
     clearInterval(theClock);
     generateWin();
@@ -91,10 +93,10 @@ function finalScreen() {
   gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>All done, here's how you did!" + "</p>" + "<p class='summary-correct'>Correct Answers: " + correctTally + "</p>" + "<p>Wrong Answers: " + incorrectTally + "</p>" + "<p>Unanswered: " + unansweredTally + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset The Quiz!</a></p>";
   $(".mainArea").html(gameHTML);
   if ( correctTally === 8) {
-    $(".mainArea").append("Wow, you know the NBA!")
+    $(".mainArea").append( "<p>Wow, you know the NBA!</p>")
   }
   if ( correctTally === 0) {
-    $(".mainArea").append("Seems you may need to do some more studying!")
+    $(".mainArea").append("<p>Seems you may need to do some more studying!</p>")
   }
 }
 
@@ -111,7 +113,7 @@ function resetGame() {
 var startScreen;
 var gameHTML;
 var counter = 30;
-var questionArray = ["What year was the National Basketball Association first established?", "Michael Jordan was drafted third overall in 1984. Which two players were selected ahead of him?", "What year did the NBA-ABA merger occur?", "Who is the only coach to win both a NCAA and NBA championship?", "Who was the NBA’s first commissioner?", "What number did Michael Jordan wear when he came out of retirement for the end of the 1994-1995 season?", "Before they were the 'Showtime' Los Angeles Lakers, what US city was home to the franchise?", "Since the NBA began handing out Most Valuable Player awards in 1956, who has won the most MVP trophies through the 2013-14 season?"];
+var questionArray = ["What year was the National Basketball Association first established?", "Michael Jordan was drafted third overall in 1984. Which two players were selected ahead of him?", "What year did the NBA-ABA merger occur?", "Who is the only coach to win both a NCAA and NBA championship?", "Who was the NBA's first commissioner?", "What number did Michael Jordan wear when he came out of retirement for the end of the 1994-1995 season?", "Before they were the 'Showtime' Los Angeles Lakers, what US city was home to the franchise?", "Since the NBA began handing out Most Valuable Player awards in 1956, who has won the most MVP trophies through the 2013-14 season?"];
 var answerArray = [["1935", "1945", "1946", "1958"], ["Hakeem Olajuwon & Sam Bowie","Patrick Ewing & Hakeem Olajuwon","Charles Barkley & Hakeem Olajuwon","Karl Malone & Sam Bowie"], ["1970", "1973", "1976", "1974"], ["Rick Pitino","Larry Brown","Chuck Daly","John Calipari"], ["James A. Naismith", "Maurice Podoloff", "Jackie Moon", "Walter Brown"], ["32","45","23","22"], ["Kansas City", "Indianapolis", "Minneapolis", "St. Louis"], ["Wilt Chamberlain","Michael Jordan","Bill Russell","Kareem Abdul-Jabbar"]];
 var imageArray = ["<img class='center-block img-right' src='assets/images/NBA-logo.png'>", "<img class='center-block img-right' src='assets/images/HKandSB.jpg'>", "<img class='center-block img-right' src='assets/images/NBA_ABA.png'>", "<img class='center-block img-right' src='assets/images/Larry_Brown.jpg'>", "<img class='center-block img-right' src='assets/images/Maurice_Podoloff.jpg'>", "<img class='center-block img-right' src='assets/images/jordan_45.jpeg'>", "<img class='center-block img-right' src='assets/images/Minneapolis.jpg'>", "<img class='center-block img-right' src='assets/images/kareem.jpg'>"];
 var correctAnswers = ["C. 1946", "A. Hakeem Olajuwon & Sam Bowie", "C. 1976", "B. Larry Brown", "B. Maurice Podoloff", "B. 45", "C. Minneapolis", "D. Kareem Abdul-Jabbar"];
@@ -121,4 +123,3 @@ var theClock;
 var correctTally = 0;
 var incorrectTally = 0;
 var unansweredTally = 0;
-
