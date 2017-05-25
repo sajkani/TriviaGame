@@ -3,8 +3,9 @@ $(document).ready(function() {
 
 function initialScreen() {
   var basketBallImage = "<img class='center-block img-right' src='assets/images/basketball.jpeg'>"
+  var initialContext = "<p class='text-center initialContext'><b>Take the NBA Trivia Quiz to test your knowledge of the NBA!<b></p>"
   var startScreen = "<p class='text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' role='button'>Start Quiz</a></p>";
-  $(".mainArea").html( basketBallImage + startScreen);
+  $(".mainArea").html( basketBallImage  + initialContext + startScreen);
 
 }
 
@@ -93,10 +94,10 @@ function finalScreen() {
   gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>All done, here's how you did!" + "</p>" + "<p class='summary-correct'>Correct Answers: " + correctTally + "</p>" + "<p>Wrong Answers: " + incorrectTally + "</p>" + "<p>Unanswered: " + unansweredTally + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Reset The Quiz!</a></p>";
   $(".mainArea").html(gameHTML);
   if ( correctTally === 8) {
-    $(".mainArea").append( "<p>Wow, you know the NBA!</p>")
+    $(".mainArea").append( "<p>Wow, you must be a huge fan of the NBA!</p>")
   }
   if ( correctTally === 0) {
-    $(".mainArea").append("<p>Seems you may need to do some more studying!</p>")
+    $(".mainArea").append("<p>It appears you must not be a fan of the NBA!</p>")
   }
 }
 
